@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="list-container">
+        <div class="search">
+            <input placeholder="Search" (keyup)="search()" [(ngModel)]="params.title" />
+        </div>
+        <div class="list">
+            <div class="film" *ngFor="let film of films; let i = index" (click)="view(i)">
+                {{film.title}}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="overlay" [attr.data-display]="(data === undefined ? false : true)">
+    <div class="window" *ngIf="data !== undefined">
+        <h3>{{data.id}}</h3>
+        <label>Title</label>
+        <input placeholder="Title" value="{{data.title}}" readonly />
+        <label>Year</label>
+        <input placeholder="Year" value="{{data.year}}" readonly />
+        <label>Director</label>
+        <input placeholder="Director" value="{{data.director}}" readonly />
+        <label>Cast</label>
+        <input placeholder="Cast" value="{{data.castString()}}" readonly />
+        <label>Review</label>
+        <textarea placeholder="Review" value="{{data.review}}" readonly></textarea>
+        <div class="actions">
+            <button (click)="delete(data.id)" danger>Delete</button>
+            <button (click)="close()">Ok</button>
+        </div>
+    </div>
+</div>
