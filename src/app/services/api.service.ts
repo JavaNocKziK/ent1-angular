@@ -36,4 +36,18 @@ export class ApiService {
                 return result.json();
             });
     }
+    public update(data: FilmResult) {
+        return this._http
+            .put(`${environment.api}/films/${data.id}`, data)
+            .map((result) => {
+                return result.json();
+            });
+    }
+    public create(data: FilmResult) {
+        return this._http
+            .post(`${environment.api}/films`, data)
+            .map((result) => {
+                return result.json();
+            });
+    }
 }

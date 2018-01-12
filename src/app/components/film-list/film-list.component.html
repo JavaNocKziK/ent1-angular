@@ -2,14 +2,10 @@
     <div class="list-container">
         <div class="header">
             <input placeholder="Search" (keyup)="search()" [(ngModel)]="params.title" />
-        </div>
-        <div class="tablehead">
-            <p>ID</p>
-            <p>Title</p>
+            <button (click)="create()">Add</button>
         </div>
         <div class="list">
             <div class="film" *ngFor="let film of films; let i = index" (click)="view(i)">
-                <p>{{film.id}}</p>
                 <p>{{film.title}}</p>
             </div>
         </div>

@@ -2,18 +2,23 @@
     <div class="window" *ngIf="data !== undefined">
         <h3>{{data.id}}</h3>
         <label>Title</label>
-        <input placeholder="Title" value="{{data.title}}" readonly />
+        <input placeholder="Title" [(ngModel)]="data.title" />
         <label>Year</label>
-        <input placeholder="Year" value="{{data.year}}" readonly />
+        <input placeholder="Year" [(ngModel)]="data.year" />
         <label>Director</label>
-        <input placeholder="Director" value="{{data.director}}" readonly />
+        <input placeholder="Director" [(ngModel)]="data.director" />
         <label>Cast</label>
-        <input placeholder="Cast" value="{{data.castString()}}" readonly />
+        <input placeholder="Cast" [(ngModel)]="data.cast" />
         <label>Review</label>
-        <textarea placeholder="Review" value="{{data.review}}" readonly></textarea>
-        <div class="actions">
-            <button (click)="delete(data.id)" danger>Delete</button>
-            <button (click)="close()">Ok</button>
+        <textarea placeholder="Review" [(ngModel)]="data.review" rows="5"></textarea>
+        <div class="actions" *ngIf="mode == 0" view>
+            <button (click)="delete()" danger>Delete</button>
+            <button (click)="close()">Cancel</button>
+            <button (click)="update()">Apply Changes</button>
+        </div>
+        <div class="actions" *ngIf="mode == 1" create>
+            <button (click)="close()">Cancel</button>
+            <button (click)="create()">Create</button>
         </div>
     </div>
 </div>

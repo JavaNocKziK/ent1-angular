@@ -24,7 +24,7 @@ export class ResultService {
                 newFilm.title = element.title;
                 newFilm.director = element.director;
                 newFilm.year = element.year;
-                newFilm.cast = String(element.cast).split(', ');
+                newFilm.cast = element.cast;
                 newFilm.review = element.review;
                 newData.push(newFilm);
             });

@@ -3,9 +3,6 @@ export class FilmResult {
     public title: String;
     public year: Number;
     public director: String;
-    public cast: String[];
+    public cast: String;
     public review: String;
-    public castString(): String {
-        return this.cast.join(', ');
-    }
 }

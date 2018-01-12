@@ -12,6 +12,7 @@ import { OverlayService } from '../../services/overlay.service';
 })
 export class OverlayComponent implements OnInit {
     public data: FilmResult;
+    public mode: Number; // 0 = View, 1 = Create
     constructor(
         private apiService: ApiService,
         private resultService: ResultService,
@@ -21,12 +22,35 @@ export class OverlayComponent implements OnInit {
         this.overlayService.get().subscribe((data) => {
             this.data = data;
         });
+        this.overlayService.mode.subscribe((data) => {
+            this.mode = data;
+        });
     }
     public close() {
         this.overlayService.set(undefined);
     }
-    public delete(id: String) {
-        this.apiService.delete(id).subscribe((result) => {
+    public delete() {
+        this.apiService.delete(this.data.id).subscribe((result) => {
+            if(result.success) {
+                this.resultService.get();
+                this.overlayService.close();
+            } else {
+                console.log(result.message);
+            }
+        });
+    }
+    public update() {
+        this.apiService.update(this.data).subscribe((result) => {
+            if(result.success) {
+                this.resultService.get();
+                this.overlayService.close();
+            } else {
+                console.log(result.message);
+            }
+        });
+    }
+    public create() {
+        this.apiService.create(this.data).subscribe((result) => {
             if(result.success) {
                 this.resultService.get();
                 this.overlayService.close();

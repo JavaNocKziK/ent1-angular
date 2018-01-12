@@ -11,15 +11,15 @@
     font-size: 0pt;
     .list-container {
         display: grid;
-        grid-template-columns: 1;
+        grid-template-columns: 400px;
         grid-template-rows: min-content min-content 1fr;
         grid-column: 1;
         grid-row: 1;
-        justify-self: center;
-        justify-items: center;
+        justify-content: center;
         align-items: start;
         width: 100%;
         height: 100%;
+        /*
         .tablehead {
             display: grid;
             grid-template-columns: 250px 1fr;
@@ -33,63 +33,70 @@
                 text-transform: uppercase;
             }
         }
+        */
         .header {
             display: grid;
-            grid-template-columns: 1;
+            grid-template-columns: 1fr 80px;
             grid-template-rows: 1;
             justify-content: center;
-            width: 100%;
-            padding: 20px;
-            background-color: #1565C0;
-            box-sizing: border-box;
-            box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.125);
-            input {
-                width: 250px;
-                padding: 10px;
-                font-size: 10pt;
-                border: none;
-                outline: none;
+            grid-column-gap: 10px;
+            button {
+                margin: 10px 0px 10px 0px;
                 border-radius: 4px;
-                box-sizing: border-box;
-                background-color: rgba(255, 255, 255, 0.125);
-                color: #FEFEFE;
-                transition: width 0.2s ease-in-out;
-            }
-            input:focus {
-                width: 500px;
-            }
-            input::placeholder {
-                color: rgba(255, 255, 255, 0.75);
+                background: transparent;
+                outline: none;
+                box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.075);
+                border: 1px solid rgba(0, 0, 0, 0.125);
                 text-transform: uppercase;
+                cursor: pointer;
+            }
+            button:hover {
+                border: 1px solid rgba(21, 101, 192, 0.5);
             }
         }
-        .list {
+        input {
             width: 100%;
+            padding: 10px;
+            font-size: 10pt;
+            margin: 10px 0px 10px 0px;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: transparent;
+            color: #212121;
+            box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.075);
+            border: 1px solid rgba(0, 0, 0, 0.125);
+        }
+        input::placeholder {
+            color: rgba(0, 0, 0, 0.25);
+            text-transform: uppercase;
+        }
+        input:focus {
+            border: 1px solid rgba(21, 101, 192, 0.5);
+        }
+        .list {
+            width: 400px;
             .film {
-                display: grid;
-                grid-template-columns: 250px 1fr;
-                grid-template-rows: 1;
+                margin-bottom: 10px;
                 width: 100%;
                 box-sizing: border-box;
                 cursor: pointer;
                 opacity: 0.75;
-                border-top: 1px solid transparent;
-                border-bottom: 1px solid transparent;
+                border: 1px solid transparent;
+                border-radius: 4px;
+                border: 1px solid rgba(0, 0, 0, 0.125);
                 p {
                     margin: 0;
                     font-size: 10pt;
-                    padding: 10px 5px 10px 5px;
-                    text-align: center;
-                }
-                p:first-of-type {
-                    text-align: center;
+                    padding: 10px;
+                    text-align: left;
                 }
             }
             .film:hover {
                 opacity: 1;
                 box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.075);
-                border-top: 1px solid rgba(0, 0, 0, 0.075);
-                border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+                border: 1px solid rgba(21, 101, 192, 0.5);
             }
         }
     }

@@ -21,8 +21,10 @@ export class FilmListComponent implements OnInit {
     ) {}
     ngOnInit() {
         this.resultService.get();
-        Observable.interval(10000).subscribe((x) => {
-            this.resultService.get();
+        // Fetch new results every 20 seconds. So the list will update
+        // on it's own and we don't have to refresh.
+        Observable.interval(20000).subscribe((x) => {
+            this.resultService.get(this.params);
         });
         this.resultService.results.subscribe((data) => {
             this.films = data;
@@ -33,5 +35,8 @@ export class FilmListComponent implements OnInit {
     }
     public search() {
         this.resultService.get(this.params);
+    }
+    public create() {
+        this.overlayService.create();
     }
 }
