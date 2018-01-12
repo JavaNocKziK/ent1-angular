@@ -26,9 +26,17 @@ export class OverlayComponent implements OnInit {
             this.mode = data;
         });
     }
+
+    /**
+     * Close the overlay.
+     */
     public close() {
         this.overlayService.set(undefined);
     }
+
+    /**
+     * Delete the film.
+     */
     public delete() {
         this.apiService.delete(this.data.id).subscribe((result) => {
             if(result.success) {
@@ -39,6 +47,10 @@ export class OverlayComponent implements OnInit {
             }
         });
     }
+
+    /**
+     * Update the film.
+     */
     public update() {
         this.apiService.update(this.data).subscribe((result) => {
             if(result.success) {
@@ -49,6 +61,10 @@ export class OverlayComponent implements OnInit {
             }
         });
     }
+
+    /**
+     * Create the film.
+     */
     public create() {
         this.apiService.create(this.data).subscribe((result) => {
             if(result.success) {

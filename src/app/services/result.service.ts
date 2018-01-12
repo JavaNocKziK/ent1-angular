@@ -15,6 +15,11 @@ export class ResultService {
     constructor(
         private apiService: ApiService
     ) {}
+
+    /**
+     * Get the list of results from the API.
+     * @param search Optional search parameters.
+     */
     public get(search?: Search) {
         this.apiService.list(search).subscribe((data) => {
             let newData: FilmResult[] = [];
